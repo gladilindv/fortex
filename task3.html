@@ -2,8 +2,27 @@
 <head>
 <script>
 $(document).ready(function(){
+
+  // load sample data
+  fetch('https://data.medicaid.gov/api/views/uex2-n56q/rows.json')
+  .then(response => response.json())
+  .then(json => {
+    var ul = $("#myUL");
+    for(var key in json.data){
+      ul.append( $("<li>", {text:json.data[key][14]}) )
+    }
+  });
+  
+  // bind reset button
+  $("button").on("click", function(){
+  	$("#myUL li").show();
+    $("#searchBox").val("");
+	})
+
+	// bind keyup event
   $("#searchBox").on("keyup", function() {
     var value = $(this).val().toLowerCase();
+    if(value.length < 2) return;
     $("#myUL li").filter(function() {
     $(this).toggle($(this).text().toLowerCase().indexOf(value) == 0)
     });
@@ -14,14 +33,10 @@ $(document).ready(function(){
 </body>
 <div>  
   <input type="search" id="searchBox" placeholder="search">
-  <ul id="myUL">
-  <li>list item 1</li>
-  <li>list item 2</li>
-  <li>list item 3</li>
-  <li>list item 4</li>
-  <li>list item 5</li>
-  <li>list item 6</li>
-</ul>
+  <button>
+  Reset
+  </button>
+  <ul id="myUL"/>
 </div>
 </body>
 </html>
