@@ -21,8 +21,8 @@ http://sqlfiddle.com/#!9/41cd9a/6/0
 ------------------
 
 #### решение
-SQL-часть http://sqlfiddle.com/#!9/f4015e/2/0
-PHP-часть https://repl.it/repls/GrowlingDefinitiveDiscussions
+* SQL-часть http://sqlfiddle.com/#!9/f4015e/2/0
+* PHP-часть https://repl.it/repls/GrowlingDefinitiveDiscussions
 
 
 #### вопросы
